@@ -1,7 +1,11 @@
 # Directory for holding deny lists
 denylists/
+
 # Directory for holding documents to be parsed
 documents/
+
+# IDE files
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
