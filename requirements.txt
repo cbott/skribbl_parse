@@ -1,0 +1,3 @@
+english-words
+beautifulsoup4
+requests
