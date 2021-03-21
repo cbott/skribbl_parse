@@ -1,8 +1,6 @@
-# Directory for holding deny lists
-denylists/
-
 # Directory for holding documents to be parsed
 documents/
+temp/
 
 # IDE files
 .vscode/
