@@ -46,7 +46,6 @@ def remove_denylist_words(word_set: set, denylist_file: str) -> set:
     return word_set - words_to_remove
 
 
-
 def parse_text_to_skribbl(text: str, denylist: Optional[str], min_characters: int, max_characters: int) -> set:
     """ Take any string and parse it into a list of words suitable for a Skribbl.io game """
     # Separate the text into "words"
@@ -61,11 +60,11 @@ def parse_text_to_skribbl(text: str, denylist: Optional[str], min_characters: in
     words = set(document_text.split())
 
     words = set(word for word in words
-        # Remove all words whose length is outside of [min_characters, max_characters]
-        if len(word) >= min_characters and len(word) <= max_characters
-        # Remove non-English words
-        and word in english_words_lower_set
-    )
+                # Remove all words whose length is outside of [min_characters, max_characters]
+                if len(word) >= min_characters and len(word) <= max_characters
+                # Remove non-English words
+                and word in english_words_lower_set
+                )
 
     # Remove words that are in a denylist, if specified
     if denylist:
@@ -75,7 +74,7 @@ def parse_text_to_skribbl(text: str, denylist: Optional[str], min_characters: in
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Parse any plaintext file into a Scribble.io word list')
+    parser = argparse.ArgumentParser(description='Parse any plaintext file or website into a skribbl.io word list')
     parser.add_argument('file', help='File or URL to parse')
     parser.add_argument('--min-characters', '-l', default=4, type=int, help='Remove words with fewer than this number of characters')
     parser.add_argument('--max-characters', '-u', default=12, type=int, help='Remove words with greater than this number of characters')
